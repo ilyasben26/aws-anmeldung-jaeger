@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anmeldung Jaeger</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .location {
+      font-weight: bold;
+      font-size: 1.5em;
+      margin-bottom: 5px; 
+      color: #007bff;
+    }
+    .status {
+      font-weight: bold;
+      color: #007bff;
+      margin-left: 10px; 
+      font-size: 1em; 
+    }
+    .datetime {
+      color: #555;
+      font-size: 0.5em; 
+    }
+    .days {
+      margin-left: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    #logo {
+      height: auto;
+      width: 500px;
+      margin-bottom: 20px;
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+  </style>
+</head>
+<body>
+  <img id="logo" class="center" src="./assets/logo.png">
+  <div id="container">
+    <h1>Bremen</h1>
+    <div id="dataDisplay"></div>
+  </div>
+  <div id="container">
+    <h1>Berlin</h1>
+    <p>Coming soon ...</p>
+  </div>
+  <div id="container">
+    <h1>Hamburg</h1>
+    <p>Coming soon ...</p>
+  </div>
+  <div id="container">
+    <h1>München</h1>
+    <p>Coming soon ...</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $.getJSON('http://anmeldung-jaeger.com/data.json', function(data) {
+        var output = $('<div></div>');
+
+        $.each(data, function(index, item) {
+          var locationContainer = $('<div></div>');
+          var location = $('<h2 class="location"></h2>').text(item.location);
+          var status = $('<span class="status"></span>');
+
+          // Display check mark or X mark based on status
+          var statusSymbol = item.status === 'available' ? '✅' : '❌';
+          status.text(statusSymbol);
+
+          var datetime = $('<span class="datetime"></span>').text(' (aktualisiert am: ' + item.datetime + ')');
+
+          location.append(status).append(datetime);
+          locationContainer.append(location);
+
+          var listContainer = $('<ul></ul>');
+          $.each(item.days, function(idx, day) {
+            listContainer.append($('<li></li>').text(day));
+          });
+
+          locationContainer.append(listContainer);
+          output.append(locationContainer);
+        });
+
+        $('#dataDisplay').empty().append(output);
+      });
+    });
+  </script>
+</body>
+</html>

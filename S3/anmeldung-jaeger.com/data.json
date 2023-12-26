@@ -1,0 +1,30 @@
+[
+    {
+      "location": "BürgerServiceCenter-Nord",
+      "status": "available",
+      "datetime": "25/12/2023 08:46:43",
+      "days": [
+        "Mittwoch, 17.04.2024",
+        "Donnerstag, 18.04.2024",
+        "Freitag, 19.04.2024"
+      ]
+    },
+    {
+      "location": "BürgerServiceCenter-Mitte",
+      "status": "available",
+      "datetime": "25/12/2023 08:46:45",
+      "days": [
+        "Mittwoch, 17.04.2024",
+        "Samstag, 20.04.2024"
+      ]
+    },
+    {
+      "location": "BürgerServiceCenter-Stresemannstraße",
+      "status": "available",
+      "datetime": "25/12/2023 08:46:48",
+      "days": [
+        "Donnerstag, 18.04.2024",
+        "Freitag, 19.04.2024"
+      ]
+    }
+  ]
