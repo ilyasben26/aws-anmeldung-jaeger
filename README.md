@@ -18,7 +18,8 @@ I will be using the following services:
 - *AWS IAM*: to configure the necessary roles and permissions
 
 # 2. The Architecture
-![Anmeldung (3)](https://github.com/ilyasben26/aws-anmeldung-jaeger/assets/73348981/4f5917ae-2cf4-497b-932e-412c5b39c29d)
+![Anmeldung (4)](https://github.com/ilyasben26/aws-anmeldung-jaeger/assets/73348981/0ce6dce6-ea15-4c92-bc4a-0684b548157e)
+
 
 # 3. Development
 ## 1. Reverse Engineering the Portal 
